@@ -1,0 +1,39 @@
+{
+  "format": "lifehouse-psychosocial",
+  "version": "0.1.0",
+  "project": {
+    "id": "lifehouse-demo-five-voices",
+    "title": "Fünf Stimmen – synthetische Demonstration",
+    "data_class": "synthetic"
+  },
+  "psychometry": {
+    "model": "interpersonal-circumplex",
+    "instrument": "Illustrative Werte; kein validiertes Messinstrument",
+    "scoring": "normalized_0_1_illustrative",
+    "dimensions": [
+      {"id": "agency", "label": "Agency", "description": "Ausmaß von Einflussnahme und Selbstbehauptung"},
+      {"id": "communion", "label": "Communion", "description": "Ausmaß von Verbundenheit und Wärme"}
+    ],
+    "participants": [
+      {"id": "p01", "label": "Stimme A", "scores": {"agency": 0.86, "communion": 0.39}},
+      {"id": "p02", "label": "Stimme B", "scores": {"agency": 0.31, "communion": 0.92}},
+      {"id": "p03", "label": "Stimme C", "scores": {"agency": 0.57, "communion": 0.64}},
+      {"id": "p04", "label": "Stimme D", "scores": {"agency": 0.21, "communion": 0.24}},
+      {"id": "p05", "label": "Stimme E", "scores": {"agency": 0.76, "communion": 0.83}}
+    ]
+  },
+  "sociometry": {
+    "criterion": "Mit wem würdest du gerne gemeinsam eine musikalische Aufgabe gestalten?",
+    "type": "directed_positive_weighted",
+    "links": [
+      {"source": "p01", "target": "p02", "weight": 0.92},
+      {"source": "p02", "target": "p01", "weight": 0.75},
+      {"source": "p02", "target": "p03", "weight": 0.82},
+      {"source": "p03", "target": "p05", "weight": 0.66},
+      {"source": "p04", "target": "p03", "weight": 0.80},
+      {"source": "p05", "target": "p01", "weight": 0.79},
+      {"source": "p05", "target": "p04", "weight": 0.46}
+    ]
+  },
+  "playback": {"tempo_bpm": 112, "bars": 12, "meter": [4, 4], "scale": "d_dorian", "mapping_id": "circumplex-demo-v0.1"}
+}

@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:lifehouse:score:schema:0.1.0",
+  "title": "Lifehouse Generated Musical Score (prototype 0.1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "source_project_id",
+    "engine",
+    "include_sociometry",
+    "bpm",
+    "bars",
+    "meter",
+    "scale",
+    "duration_seconds",
+    "notes"
+  ],
+  "properties": {
+    "format": {
+      "const": "lifehouse-score"
+    },
+    "version": {
+      "const": "0.1.0"
+    },
+    "source_project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engine": {
+      "const": "lifehouse-circumplex-demo-v0.1"
+    },
+    "include_sociometry": {
+      "type": "boolean"
+    },
+    "bpm": {
+      "type": "integer",
+      "minimum": 40,
+      "maximum": 240
+    },
+    "bars": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 32
+    },
+    "meter": {
+      "const": [
+        4,
+        4
+      ]
+    },
+    "scale": {
+      "const": "d_dorian"
+    },
+    "duration_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "person_id",
+          "related_to",
+          "kind",
+          "midi",
+          "start_beat",
+          "duration_beats",
+          "velocity",
+          "channel"
+        ],
+        "properties": {
+          "person_id": {
+            "type": "string"
+          },
+          "related_to": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "individual",
+              "sociometric_echo"
+            ]
+          },
+          "midi": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 127
+          },
+          "start_beat": {
+            "type": "number",
+            "minimum": 0
+          },
+          "duration_beats": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "velocity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 127
+          },
+          "channel": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 11
+          }
+        }
+      }
+    }
+  }
+}
