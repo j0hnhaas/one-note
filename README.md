@@ -19,8 +19,9 @@ Den [Lifehouse Player öffnen](./index.html) (HTML-Datei lokal öffnen oder übe
 | [demo.lifehouse.json](./examples/demo.lifehouse.json) | Synthetischer Beispieldatensatz (psychometrische Profile + Soziogramm) |
 | [lifehouse.schema.json](./schemas/lifehouse.schema.json) | JSON Schema für Datensätze, Draft 2020-12 |
 | [lifehouse-score.schema.json](./schemas/lifehouse-score.schema.json) | JSON Schema für berechnete Notenereignisse |
-| `*.lifehouse-score.json` | Über den Player exportierbare deterministische Partitur |
-| `*.mid` | Über den Player exportierbare MIDI-Datei |
+| [example.lifehouse-score.json](./examples/example.lifehouse-score.json) | Aus dem Beispiel deterministisch berechnete Partitur (156 Noten) |
+| [example.mid](./examples/example.mid) | Gleiche Beispielkomposition als Standard-MIDI-Datei |
+| `*.lifehouse-score.json` / `*.mid` | Weitere Dateien können direkt im Player exportiert werden |
 
 **Version 0.1:** Maximal 12 Teilnehmende, zwei Dimensionen und gerichtete positive Wahlen. Die Mappings sind mit `circumplex-demo-v0.1` versioniert. Die Unterstützung anderer Messinstrumente und Kriterien ist noch nicht implementiert.
 
