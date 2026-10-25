@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://j0hnhaas.github.io/one-note/schemas/lifehouse-score-v0.2.schema.json",
+  "title": "ONE NOTE deterministic rendered score 0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "source_project_id",
+    "person_id",
+    "engine",
+    "mode",
+    "bpm",
+    "bars",
+    "meter",
+    "duration_seconds",
+    "layers",
+    "notes"
+  ],
+  "properties": {
+    "format": {
+      "const": "lifehouse-score"
+    },
+    "version": {
+      "const": "0.2.0"
+    },
+    "source_project_id": {
+      "type": "string"
+    },
+    "person_id": {
+      "type": "string"
+    },
+    "engine": {
+      "const": "one-note-dual-layer-demo-v0.2"
+    },
+    "mode": {
+      "enum": [
+        "personality",
+        "pulse",
+        "fusion"
+      ]
+    },
+    "bpm": {
+      "type": "number",
+      "minimum": 40,
+      "maximum": 240
+    },
+    "bars": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 32
+    },
+    "meter": {
+      "const": [
+        4,
+        4
+      ]
+    },
+    "duration_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "layers": {
+      "type": "object",
+      "required": [
+        "psychometry",
+        "biometrics",
+        "sociometry"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "psychometry": {
+          "type": "boolean"
+        },
+        "biometrics": {
+          "type": "boolean"
+        },
+        "sociometry": {
+          "type": "boolean"
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "kind",
+          "person_id",
+          "midi",
+          "start_beat",
+          "duration_beats",
+          "velocity",
+          "channel"
+        ],
+        "properties": {
+          "source": {
+            "enum": [
+              "psychometry",
+              "biometrics"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "melody",
+              "heartbeat"
+            ]
+          },
+          "person_id": {
+            "type": "string"
+          },
+          "midi": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 127
+          },
+          "start_beat": {
+            "type": "number",
+            "minimum": 0
+          },
+          "duration_beats": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "velocity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 127
+          },
+          "channel": {
+            "enum": [
+              0,
+              9
+            ]
+          }
+        }
+      }
+    }
+  }
+}
