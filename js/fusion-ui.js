@@ -71,10 +71,10 @@ function scheduleOsc(ctx,n,origin,bpm){
  osc.type=pulse?"sine":"triangle";
  osc.frequency.setValueAtTime(pulse?115:440*Math.pow(2,(n.midi-69)/12),start);
  if(pulse)osc.frequency.exponentialRampToValueAtTime(58,start+Math.min(.07,dur*.8));
- const peak=(n.velocity/127)*(pulse?.10:.10);
+ const peak=(n.velocity/127)*(pulse ? 0.10 : 0.10);
  gain.gain.setValueAtTime(0,start);
  gain.gain.linearRampToValueAtTime(peak,start+.009);
- gain.gain.exponentialRampToValueAtTime(.0001,start+Math.max(.05,Math.min(dur,pulse?.19:dur*.90)));
+ gain.gain.exponentialRampToValueAtTime(.0001,start+Math.max(.05,Math.min(dur,pulse ? 0.19 : dur * 0.90)));
  osc.connect(gain);gain.connect(ctx.destination);
  osc.start(start);osc.stop(start+dur+.02);
  voices.push(osc);
