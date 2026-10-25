@@ -138,5 +138,5 @@ export function scoreToMidi(score){
  const track=[0,0xFF,0x51,3,(tempo>>>16)&255,(tempo>>>8)&255,tempo&255];
  let prev=0;for(const e of events){track.push(...vlq(e.tick-prev),...e.b);prev=e.tick;}
  track.push(0,0xFF,0x2F,0);
- return new Uint8Array([...chunk("MThd",[0,0,0,1,0,0,(ppq>>>8)&255,ppq&255]),...chunk("MTrk",track)]);
+ return new Uint8Array([...chunk("MThd",[0,0,0,1,(ppq>>>8)&255,ppq&255]),...chunk("MTrk",track)]);
 }
