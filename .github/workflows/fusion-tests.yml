@@ -1,0 +1,27 @@
+name: ONE NOTE — Fusion architecture tests
+on:
+  push:
+    paths:
+      - 'js/fusion-engine.js'
+      - 'examples/demo.lifehouse-session.json'
+      - 'tests/**'
+      - 'package.json'
+      - '.github/workflows/fusion-tests.yml'
+  pull_request:
+    paths:
+      - 'js/fusion-engine.js'
+      - 'examples/demo.lifehouse-session.json'
+      - 'tests/**'
+      - 'package.json'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify layer separation, determinism and MIDI export
+        run: npm test
