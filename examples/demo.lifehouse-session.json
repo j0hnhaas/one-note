@@ -1,0 +1,284 @@
+{
+  "format": "lifehouse-session",
+  "version": "0.2.0",
+  "project": {
+    "id": "one-note-synthetic-fusion",
+    "title": "ONE NOTE – drei synthetische Profile",
+    "data_class": "synthetic"
+  },
+  "participants": [
+    {
+      "id": "p01",
+      "label": "Stimme A",
+      "psychometrics": {
+        "big_five": {
+          "instrument": "synthetic-big-five",
+          "instrument_version": "demo-0.2",
+          "scoring": "illustrative_normalized_0_1",
+          "scores": {
+            "openness": 0.82,
+            "conscientiousness": 0.61,
+            "extraversion": 0.7,
+            "agreeableness": 0.44,
+            "neuroticism": 0.28
+          }
+        },
+        "extended": {
+          "instrument": "synthetic-16-facet-prototype-not-ipip-16pf",
+          "instrument_version": "demo-0.2",
+          "scoring": "illustrative_normalized_0_1",
+          "scores": {
+            "warmth": 0.55,
+            "analytical_interest": 0.8,
+            "emotional_stability": 0.76,
+            "assertiveness": 0.73,
+            "liveliness": 0.64,
+            "rule_orientation": 0.49,
+            "social_boldness": 0.71,
+            "sensitivity": 0.55,
+            "vigilance": 0.38,
+            "imagination": 0.86,
+            "privacy": 0.4,
+            "self_doubt": 0.22,
+            "flexibility": 0.89,
+            "self_reliance": 0.62,
+            "orderliness": 0.58,
+            "tension": 0.35
+          }
+        }
+      },
+      "biometrics": {
+        "heart_rate": {
+          "unit": "bpm",
+          "baseline_bpm": 68,
+          "samples": [
+            {
+              "t_seconds": 0,
+              "bpm": 68,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 5,
+              "bpm": 70,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 10,
+              "bpm": 73,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 15,
+              "bpm": 78,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 20,
+              "bpm": 74,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 25,
+              "bpm": 72,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 30,
+              "bpm": 69,
+              "quality": "simulated"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "p02",
+      "label": "Stimme B",
+      "psychometrics": {
+        "big_five": {
+          "instrument": "synthetic-big-five",
+          "instrument_version": "demo-0.2",
+          "scoring": "illustrative_normalized_0_1",
+          "scores": {
+            "openness": 0.38,
+            "conscientiousness": 0.88,
+            "extraversion": 0.27,
+            "agreeableness": 0.85,
+            "neuroticism": 0.18
+          }
+        },
+        "extended": {
+          "instrument": "synthetic-16-facet-prototype-not-ipip-16pf",
+          "instrument_version": "demo-0.2",
+          "scoring": "illustrative_normalized_0_1",
+          "scores": {
+            "warmth": 0.89,
+            "analytical_interest": 0.44,
+            "emotional_stability": 0.83,
+            "assertiveness": 0.25,
+            "liveliness": 0.31,
+            "rule_orientation": 0.94,
+            "social_boldness": 0.36,
+            "sensitivity": 0.78,
+            "vigilance": 0.28,
+            "imagination": 0.35,
+            "privacy": 0.64,
+            "self_doubt": 0.26,
+            "flexibility": 0.41,
+            "self_reliance": 0.43,
+            "orderliness": 0.9,
+            "tension": 0.2
+          }
+        }
+      },
+      "biometrics": {
+        "heart_rate": {
+          "unit": "bpm",
+          "baseline_bpm": 81,
+          "samples": [
+            {
+              "t_seconds": 0,
+              "bpm": 81,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 5,
+              "bpm": 83,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 10,
+              "bpm": 87,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 15,
+              "bpm": 84,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 20,
+              "bpm": 80,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 25,
+              "bpm": 78,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 30,
+              "bpm": 79,
+              "quality": "simulated"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "p03",
+      "label": "Stimme C",
+      "psychometrics": {
+        "big_five": {
+          "instrument": "synthetic-big-five",
+          "instrument_version": "demo-0.2",
+          "scoring": "illustrative_normalized_0_1",
+          "scores": {
+            "openness": 0.64,
+            "conscientiousness": 0.38,
+            "extraversion": 0.48,
+            "agreeableness": 0.59,
+            "neuroticism": 0.67
+          }
+        },
+        "extended": {
+          "instrument": "synthetic-16-facet-prototype-not-ipip-16pf",
+          "instrument_version": "demo-0.2",
+          "scoring": "illustrative_normalized_0_1",
+          "scores": {
+            "warmth": 0.66,
+            "analytical_interest": 0.52,
+            "emotional_stability": 0.34,
+            "assertiveness": 0.56,
+            "liveliness": 0.62,
+            "rule_orientation": 0.36,
+            "social_boldness": 0.51,
+            "sensitivity": 0.8,
+            "vigilance": 0.68,
+            "imagination": 0.7,
+            "privacy": 0.51,
+            "self_doubt": 0.63,
+            "flexibility": 0.75,
+            "self_reliance": 0.58,
+            "orderliness": 0.32,
+            "tension": 0.71
+          }
+        }
+      },
+      "biometrics": {
+        "heart_rate": {
+          "unit": "bpm",
+          "baseline_bpm": 73,
+          "samples": [
+            {
+              "t_seconds": 0,
+              "bpm": 73,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 5,
+              "bpm": 76,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 10,
+              "bpm": 85,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 15,
+              "bpm": 92,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 20,
+              "bpm": 83,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 25,
+              "bpm": 80,
+              "quality": "simulated"
+            },
+            {
+              "t_seconds": 30,
+              "bpm": 75,
+              "quality": "simulated"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "sociometry": {
+    "criterion": "Synthetische Demo: Mit wem möchtest du improvisieren?",
+    "links": [
+      {
+        "source": "p01",
+        "target": "p02",
+        "weight": 0.8
+      },
+      {
+        "source": "p02",
+        "target": "p03",
+        "weight": 0.6
+      }
+    ]
+  },
+  "composition": {
+    "tempo_bpm": 112,
+    "bars": 12,
+    "seed": 20261025,
+    "mapping_id": "one-note-dual-layer-demo-v0.2"
+  }
+}
