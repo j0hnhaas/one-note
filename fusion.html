@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ONE NOTE · Lifehouse Fusion 0.2</title>
+<style>
+:root{color-scheme:dark;--bg:#0d141c;--panel:#172531;--line:#314553;--text:#f3f6f6;--muted:#aabdc5;--green:#67e3c1;--blue:#7baee9;--rose:#f2b07e}
+*{box-sizing:border-box}body{font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(ellipse at 70% -10%,#143b39,transparent 48%),var(--bg);color:var(--text);margin:0}a{color:var(--green)}
+main{width:min(1100px,100%);margin:auto;padding:30px 20px 60px}h1{font-size:clamp(2.3rem,5vw,3.5rem);line-height:1.1;letter-spacing:-.05em;margin:7px 0 14px}h1 span{color:var(--green)}h2{font-size:1.15rem;margin:0 0 10px}p{color:var(--muted);margin:8px 0}small,.meta{color:var(--muted)}.eyebrow{color:var(--green);font-size:.72rem;letter-spacing:.16em;font-weight:800;text-transform:uppercase}
+section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.columns{grid-template-columns:1fr}}
+button,select,input{font:inherit}button{border:1px solid var(--line);background:#203544;color:var(--text);border-radius:10px;padding:11px 15px;cursor:pointer}button:hover{border-color:var(--green)}button.selected,.primary{background:var(--green);color:#102820;border-color:var(--green);font-weight:750}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+select,input[type=number]{background:#0c1823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:10px;max-width:100%}
+label{display:flex;gap:6px;flex-direction:column;color:var(--muted);font-size:.86rem}input[type=file]{max-width:100%;font:inherit}.grow{flex:1}.stat{border:1px solid var(--line);border-radius:12px;padding:12px;min-width:140px;flex:1}.stat b{font-size:1.45rem;display:block;color:var(--text)}.hint{font-size:.83rem}
+canvas{width:100%;height:200px;background:#101f2c;border:1px solid var(--line);border-radius:10px}#status{color:var(--green);min-height:24px}#status.error{color:#ffa09c}.path{font:12px ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted)}
+</style></head><body><main>
+<div class="eyebrow">ONE NOTE / Lifehouse · Experimenteller Prototyp 0.2</div>
+<h1>Lifehouse <span>Fusion</span></h1>
+<p>Persönlichkeit ist die Grundstruktur, Puls die zeitabhängige rhythmische Ebene. Beide Schichten bleiben separat berechenbar und vergleichbar. Keine Diagnostik; keine psychologische Deutung des Pulssignals.</p>
+<p><a href="./index.html">← Zum bisherigen soziometrischen Gruppen-Player 0.1</a> · <a href="./docs/ARCHITECTURE-v0.2.md">Methodik und Datenmodell</a></p>
+<section><h2>1 · Datenquelle</h2>
+<div class="row"><button id="demo">Synthetische Demo laden</button><label class="grow">Lokale JSON-Datei importieren <input id="jsonfile" type="file" accept=".json,application/json"></label></div>
+<p class="hint">Die Daten werden ausschließlich im Browser verarbeitet. Die Demo enthält keinerlei echte personenbezogene Daten. Keine Daten werden an ONE NOTE übertragen.</p>
+<div class="row"><label class="grow">Person<select id="person"></select></label><div class="stat">Profilstatus<b id="profileStatus">–</b></div><div class="stat">Pulsstatus<b id="pulseStatus">–</b></div></div></section>
+<section><h2>2 · Musikalischer Modus</h2>
+<div class="row" id="modes"><button data-mode="personality">Personality</button><button data-mode="pulse">Pulse</button><button data-mode="fusion" class="selected">Fusion</button></div>
+<p class="hint" id="modeDescription">Big Five + 16 Demo-Facetten als melodische Grundstruktur; Puls als separater rhythmischer Verlauf.</p>
+<div class="row"><label>Aktuellen Puls manuell setzen (BPM)<input type="number" id="pulseInput" min="35" max="220" step="1" value="72"></label><button id="setPulse">Messwert übernehmen</button></div>
+<p class="hint">Ein einzelner BPM-Wert ergibt einen gleichmäßigen Rhythmus, keine Schlag-zu-Schlag-Intervalle bzw. HRV. Manuelle Werte ersetzen für die gewählte Person den bisherigen Zeitverlauf in der geladenen Sitzung.</p></section>
+<section><h2>3 · Komposition und Player</h2>
+<div class="row"><button class="primary" id="play">▶ Abspielen</button><button id="stop">■ Stoppen</button><button id="score">Score JSON exportieren</button><button id="midi">MIDI exportieren</button></div>
+<p id="status" role="status">Lade Beispieldaten …</p>
+<canvas id="piano" width="1020" height="200" aria-label="Grafische Übersicht der musikalischen Ereignisse"></canvas>
+<div class="row"><div class="stat">Psychometrische Noten<b id="countPsych">–</b></div><div class="stat">Pulsereignisse<b id="countPulse">–</b></div><div class="stat">Dauer<b id="duration">–</b></div></div>
+<p class="hint">Blau: psychometrische Ebene. Orange: Pulsrhythmus. Alle Notenereignisse behalten ihre Quellenkennzeichnung im exportierten Score.</p></section>
+<section><h2>Wissenschaftlicher Status</h2><p>Die Big Five und 16 zusätzlichen Facetten sind im Demo-Modell ausschließlich <strong>synthetische Werte</strong>. Ein IPIP-16PF-Fragebogen, seine deutschen Itemformulierungen, Normen und Auswertungsregeln sind <strong>noch nicht integriert oder validiert</strong>. Das 16-Facetten-Demomodell dient nur der Erweiterbarkeit der Architektur; bislang wirken drei dieser Facetten auf die erzeugte Musik.</p><p>Der Puls wird als Zeitreihe in BPM gespeichert und nicht mit emotionaler Erregung, Gesundheit oder Persönlichkeit gleichgesetzt. Soziometrische Beziehungen sind im Format vorgesehen, aber in der Fusion-Engine 0.2 noch nicht musikalisch umgesetzt. Der separate Gruppen-Player 0.1 bleibt verfügbar.</p></section>
+<footer><p class="path">ONE NOTE · Mapping one-note-dual-layer-demo-v0.2 · GitHub Pages · Browser-only</p></footer>
+</main><script type="module" src="./js/fusion-ui.js"></script></body></html>
